@@ -11,7 +11,28 @@ function calc()
     let num2 = prompt(2);
     let operator = prompt('operator');
 
-    console.log(eval(num1 + operator + num2));
+    //console.log(eval(num1 + operator + num2));
+
+    switch(parseInt(operator))
+    {
+        case 0:
+            console.log(num1 + num2);
+            break;
+
+        case 1:
+            console.log(num1 - num2);
+            break;
+
+        case 2:
+            console.log(num1 / num2);
+            break;
+
+        case 3:
+            console.log(num1 * num2);
+        
+        default:
+            console.log('alma');
+    }
 }
 
 button.addEventListener('click', () => {calc()});
