@@ -1,5 +1,7 @@
 
-const button = document.querySelector('#startbtn');
+const equalbtn = document.querySelector('#equal');
+
+
 
 let num1 = 0;
 let num2 = 0;
@@ -11,7 +13,12 @@ function calc()
     let num2 = prompt(2);
     let operator = prompt('operator');
 
-    //console.log(eval(num1 + operator + num2));
+/*
+csinalj egy for loopot es azzal hozd letre a szam gombokat, majd a tartalmuk alapjan tudod mit nyomsz le es looppal adj hozzajuk eventlistenert is
+az odin etch a sketch prjketemben van hasnonlo megoldas a gridhez
+innerhtml es string
+*/
+
 
     switch(parseInt(operator))
     {
@@ -29,10 +36,11 @@ function calc()
 
         case 3:
             console.log(num1 * num2);
+            break;
         
         default:
             console.log('alma');
     }
 }
 
-button.addEventListener('click', () => {calc()});
+equalbtn.addEventListener('click', () => {calc()});
