@@ -52,6 +52,12 @@ function AttachEventListeners() //event listeners are attached separately, to en
 
     opButtons.forEach(element => {
         element.addEventListener('click', () => {
+
+            if (operatorPressed) 
+            {
+                calc(parseFloat(num1), parseFloat(num2));
+            }
+
             operator = element.textContent;
             operatorPressed = true;
             display.textContent = `${num1} ${operator} ${num2}`;
@@ -66,7 +72,15 @@ AttachEventListeners();
 //create buttons in js
 
 const equalbtn = document.querySelector('#equal');
-equalbtn.addEventListener('click', () => {calc(parseFloat(num1), parseFloat(num2))});
+equalbtn.addEventListener('click', () => {
+    if (num1 && num2 && operator) {
+        calc(parseFloat(num1), parseFloat(num2));
+    }
+
+    num2 = "";
+    operatorPressed = "";
+    operator = "";
+});
 
 const delbtn = document.querySelector('#del');
 delbtn.addEventListener('click', () => {
@@ -74,11 +88,9 @@ delbtn.addEventListener('click', () => {
     {
         operator = "";
         operatorPressed = false;
-    } else if (operatorPressed) 
-    {
+    } else if (operatorPressed) {
         num2 = num2.slice(0, -1);
-    } else 
-    {
+    } else {
         num1 = num1.slice(0, -1);
     }
     display.textContent = `${num1} ${operator} ${num2}`;
@@ -93,32 +105,35 @@ cbtn.addEventListener('click', () => {
     display.textContent = "__";
 });
 
-function calc(num1, num2)
+function calc(firstNr, secondNr)
 {
     let result;
 
     switch(operator)
     {
         case "+":
-            result = num1 + num2;
+            result = firstNr + secondNr;
             break;
 
         case "-":
-            result = num1 - num2;
+            result = firstNr - secondNr;
             break;
 
         case "/":
-            result = num1 / num2;
+            result = firstNr / secondNr;
             break;
 
         case "*":
-            result = num1 * num2;
+            result = firstNr * secondNr;
             break;
         
         default:
             console.log('alma');
     }
 
-    console.log(result);
-    display.textContent = result;
+    num1 = result;
+    num2 = "";
+    operator = "";
+    operatorPressed = false;
+    display.textContent = `${num1}`;
 }
