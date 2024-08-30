@@ -1,32 +1,55 @@
 //generate number buttons so later they can be referenced in js
-const btnContainer = document.querySelector('.button-container');
-let htmlToAdd = "";
 
-for(let i = 0; i < 10; i++)
+const btnContainer = document.querySelector('.button-container');
+
+function GenerateNumbers()
 {
-    htmlToAdd += `<button class = "nr">${i}</button>`
+    let htmlToAdd = "";
+
+    for(let i = 0; i < 10; i++)
+    {
+        htmlToAdd += `<button class = "nr">${i}</button>`
+    }
+
+    btnContainer.innerHTML += htmlToAdd;
+
+
+    //add eventlistener for click to all number buttons
+    const nrButtons = document.querySelectorAll(".nr");
+
+    nrButtons.forEach(element => {
+        element.addEventListener('click', () => {console.log('im a number button')});
+    });
 }
 
-btnContainer.innerHTML += htmlToAdd;
+GenerateNumbers();
 
 
+//create operator buttons
+function GenreateOperators()
+{
+    let htmlToAdd = "";
+    let operators = ["+", "-", "/", "*"];
+    operators.forEach(element => {
+        htmlToAdd += `<button class = "operator">${element}</button>`
+    });
 
-//add eventlistener for click to all number buttons
-const nrButtons = document.querySelectorAll(".nr");
+    btnContainer.innerHTML += htmlToAdd;
 
-nrButtons.forEach(element => {
-    element.addEventListener('click', () => {console.log('works')});
-});
+    const opButtons = document.querySelectorAll(".operator");
+
+    opButtons.forEach(element => {
+        element.addEventListener('click', () => {console.log("im an operator")});
+    });
+}
+
+GenreateOperators();
 
 
 //create buttons in js
 
 const equalbtn = document.querySelector('#equal');
-
-equalbtn.addEventListener('click', () => {console.log("help")});
-
-const addBtn = document.querySelector("#add");
-addBtn.addEventListener('click', () => {console.log('nice')});
+equalbtn.addEventListener('click', () => {console.log("equal button")});
 
 
 
