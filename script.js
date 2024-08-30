@@ -1,5 +1,15 @@
 
 const equalbtn = document.querySelector('#equal');
+const btnContainer = document.querySelector('.button-container');
+
+let htmlToAdd = "";
+
+for(let i = 0; i < 10; i++)
+{
+    htmlToAdd += `<button>${i}</button>`
+}
+
+btnContainer.innerHTML = htmlToAdd;
 
 
 
