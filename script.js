@@ -20,14 +20,7 @@ function GenerateNumbers()
 
 
     //add eventlistener for click to all number buttons
-    const nrButtons = document.querySelectorAll(".nr");
-
-    nrButtons.forEach(element => {
-        element.addEventListener('click', () => {console.log('im a number button')});
-    });
 }
-GenerateNumbers();
-
 
 //create operator buttons
 function GenerateOperators()
@@ -39,6 +32,19 @@ function GenerateOperators()
     });
 
     btnContainer.innerHTML += htmlToAdd;
+}
+
+function AttachEventListeners() //event listeners are attached separately, to ensure the dom is fully loaded before looking for the button elements
+{
+    const nrButtons = document.querySelectorAll(".nr");
+
+    nrButtons.forEach(element => {
+        element.addEventListener('click', () => {
+            console.log("helo belo");
+            operatorPressed == false ? num1 += element.textContent : num2 += element.textContent;
+            console.log(num1 + " . " + num2);
+        });
+    });
 
     const opButtons = document.querySelectorAll(".operator");
     var operatorIDs = {
@@ -55,18 +61,22 @@ function GenerateOperators()
         });
     });
 }
+
+GenerateNumbers();
 GenerateOperators();
+AttachEventListeners();
 
 
 function MakeNumbers(num)
 {
     operatorPressed == false ? num1 += num : num2 += num;
+    console.log(num1 + " . " + num2)
 }
 
 //create buttons in js
 
 const equalbtn = document.querySelector('#equal');
-equalbtn.addEventListener('click', () => {console.log("equal button")});
+equalbtn.addEventListener('click', () => {calc(num1, num2)});
 
 const delbtn = document.querySelector('#del');
 delbtn.addEventListener('click', () => {console.log("del button")});
@@ -74,12 +84,8 @@ delbtn.addEventListener('click', () => {console.log("del button")});
 const cbtn = document.querySelector('#cbtn');
 cbtn.addEventListener('click', () => {MakeNumbers(1)});
 
-function calc()
+function calc(num1, num2)
 {
-    let num1 = prompt(1);
-    let num2 = prompt(2);
-    let operator = prompt('operator');
-
     switch(parseInt(operator))
     {
         case 0:
