@@ -119,7 +119,7 @@ function calc(firstNr, secondNr)
             break;
 
         case "/":
-            result = firstNr / secondNr;
+            secondNr == 0 ? result = "Error" : result = firstNr / secondNr;
             break;
 
         case "*":
@@ -129,10 +129,11 @@ function calc(firstNr, secondNr)
         default:
             console.log('alma');
     }
+    
+    result == "Error" ? num1 = "0" : num1 = result;
 
-    num1 = result;
     num2 = "";
     operator = "";
     operatorPressed = false;
-    display.textContent = `${num1}`;
+    display.textContent = `${result}`;
 }
