@@ -3,8 +3,8 @@ let num2 = "";
 let operator = "";
 let operatorPressed = false;
 
-//generate number buttons so later they can be referenced in js
 
+//generate number buttons so later they can be referenced in js
 const btnContainer = document.querySelector('.button-container');
 
 function GenerateNumbers()
@@ -42,7 +42,6 @@ function AttachEventListeners() //event listeners are attached separately, to en
         element.addEventListener('click', () => {
             console.log("helo belo");
             operatorPressed == false ? num1 += element.textContent : num2 += element.textContent;
-            console.log(num1 + " . " + num2);
         });
     });
 
@@ -65,13 +64,6 @@ function AttachEventListeners() //event listeners are attached separately, to en
 GenerateNumbers();
 GenerateOperators();
 AttachEventListeners();
-
-
-function MakeNumbers(num)
-{
-    operatorPressed == false ? num1 += num : num2 += num;
-    console.log(num1 + " . " + num2)
-}
 
 //create buttons in js
 
