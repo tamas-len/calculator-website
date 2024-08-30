@@ -21,12 +21,11 @@ function GenerateNumbers()
         element.addEventListener('click', () => {console.log('im a number button')});
     });
 }
-
 GenerateNumbers();
 
 
 //create operator buttons
-function GenreateOperators()
+function GenerateOperators()
 {
     let htmlToAdd = "";
     let operators = ["+", "-", "/", "*"];
@@ -37,13 +36,18 @@ function GenreateOperators()
     btnContainer.innerHTML += htmlToAdd;
 
     const opButtons = document.querySelectorAll(".operator");
+    var operatorIDs = {
+        "+" : 0,
+        "-" : 1,
+        "/" : 2,
+        "*" : 3
+    };
 
     opButtons.forEach(element => {
-        element.addEventListener('click', () => {console.log("im an operator")});
+        element.addEventListener('click', () => {operator = operatorIDs[element.textContent]});
     });
 }
-
-GenreateOperators();
+GenerateOperators();
 
 
 //create buttons in js
