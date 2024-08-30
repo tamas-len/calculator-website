@@ -75,11 +75,10 @@ const equalbtn = document.querySelector('#equal');
 equalbtn.addEventListener('click', () => {
     if (num1 && num2 && operator) {
         calc(parseFloat(num1), parseFloat(num2));
+        num2 = "";
+        operatorPressed = "";
+        operator = "";
     }
-
-    num2 = "";
-    operatorPressed = "";
-    operator = "";
 });
 
 const delbtn = document.querySelector('#del');
