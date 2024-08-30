@@ -9,7 +9,7 @@ for(let i = 0; i < 10; i++)
     htmlToAdd += `<button>${i}</button>`
 }
 
-btnContainer.innerHTML = htmlToAdd;
+btnContainer.innerHTML += htmlToAdd;
 
 
 
