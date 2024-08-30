@@ -1,15 +1,29 @@
+//create buttons in js
 
 const equalbtn = document.querySelector('#equal');
 const btnContainer = document.querySelector('.button-container');
 
+
+
+//generate number buttons so later they can be referenced in js
 let htmlToAdd = "";
 
 for(let i = 0; i < 10; i++)
 {
-    htmlToAdd += `<button>${i}</button>`
+    htmlToAdd += `<button class = "nr">${i}</button>`
 }
 
 btnContainer.innerHTML += htmlToAdd;
+
+
+
+//add eventlistener for click to all number buttons
+const nrButtons = document.querySelectorAll(".nr");
+
+nrButtons.forEach(element => {
+    element.addEventListener('click', () => {console.log('works')});
+});
+
 
 
 
