@@ -65,8 +65,8 @@ function AttachEventListeners() //event listeners are attached separately, to en
     });
 }
 
-GenerateNumbers();
 GenerateOperators();
+GenerateNumbers();
 AttachEventListeners();
 
 //create buttons in js
@@ -129,7 +129,7 @@ function calc(firstNr, secondNr)
         default:
             console.log('alma');
     }
-    
+
     result == "Error" ? num1 = "0" : num1 = result;
 
     num2 = "";
