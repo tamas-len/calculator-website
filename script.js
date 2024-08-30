@@ -70,7 +70,17 @@ equalbtn.addEventListener('click', () => {calc(parseFloat(num1), parseFloat(num2
 
 const delbtn = document.querySelector('#del');
 delbtn.addEventListener('click', () => {
-    operatorPressed == false ? num1 = num1.slice(0, -1) : num2 = num2.slice(0, -1);
+    if (operatorPressed && num2 === "") 
+    {
+        operator = "";
+        operatorPressed = false;
+    } else if (operatorPressed) 
+    {
+        num2 = num2.slice(0, -1);
+    } else 
+    {
+        num1 = num1.slice(0, -1);
+    }
     display.textContent = `${num1} ${operator} ${num2}`;
 });
 
