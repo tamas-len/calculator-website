@@ -40,23 +40,16 @@ function AttachEventListeners() //event listeners are attached separately, to en
 
     nrButtons.forEach(element => {
         element.addEventListener('click', () => {
-            console.log("helo belo");
             operatorPressed == false ? num1 += element.textContent : num2 += element.textContent;
         });
     });
 
 
     const opButtons = document.querySelectorAll(".operator");
-    var operatorIDs = {
-        "+" : 0,
-        "-" : 1,
-        "/" : 2,
-        "*" : 3
-    };
 
     opButtons.forEach(element => {
         element.addEventListener('click', () => {
-            operator = operatorIDs[element.textContent]
+            operator = element.textContent;
             operatorPressed = true;
         });
     });
@@ -79,21 +72,21 @@ cbtn.addEventListener('click', () => {MakeNumbers(1)});
 
 function calc(num1, num2)
 {
-    switch(parseInt(operator))
+    switch(operator)
     {
-        case 0:
+        case "+":
             console.log(num1 + num2);
             break;
 
-        case 1:
+        case "-":
             console.log(num1 - num2);
             break;
 
-        case 2:
+        case "/":
             console.log(num1 / num2);
             break;
 
-        case 3:
+        case "*":
             console.log(num1 * num2);
             break;
         
