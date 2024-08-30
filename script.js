@@ -43,7 +43,7 @@ function AttachEventListeners() //event listeners are attached separately, to en
     nrButtons.forEach(element => {
         element.addEventListener('click', () => {
             operatorPressed == false ? num1 += element.textContent : num2 += element.textContent;
-            display.textContent += element.textContent;
+            display.textContent = `${num1} ${operator} ${num2}`;
         });
     });
 
@@ -54,7 +54,7 @@ function AttachEventListeners() //event listeners are attached separately, to en
         element.addEventListener('click', () => {
             operator = element.textContent;
             operatorPressed = true;
-            display.textContent += operator;
+            display.textContent = `${num1} ${operator} ${num2}`;
         });
     });
 }
@@ -69,7 +69,10 @@ const equalbtn = document.querySelector('#equal');
 equalbtn.addEventListener('click', () => {calc(parseFloat(num1), parseFloat(num2))});
 
 const delbtn = document.querySelector('#del');
-delbtn.addEventListener('click', () => {console.log("del button")});
+delbtn.addEventListener('click', () => {
+    operatorPressed == false ? num1 = num1.slice(0, -1) : num2 = num2.slice(0, -1);
+    display.textContent = `${num1} ${operator} ${num2}`;
+});
 
 const cbtn = document.querySelector('#cbtn');
 cbtn.addEventListener('click', () => {
@@ -77,7 +80,7 @@ cbtn.addEventListener('click', () => {
     num2 = "";
     operator = "";
     operatorPressed = false;
-    display.textContent = "result: ";
+    display.textContent = "__";
 });
 
 function calc(num1, num2)
