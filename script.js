@@ -1,11 +1,5 @@
-//create buttons in js
-
-const equalbtn = document.querySelector('#equal');
-const btnContainer = document.querySelector('.button-container');
-
-
-
 //generate number buttons so later they can be referenced in js
+const btnContainer = document.querySelector('.button-container');
 let htmlToAdd = "";
 
 for(let i = 0; i < 10; i++)
@@ -25,6 +19,15 @@ nrButtons.forEach(element => {
 });
 
 
+//create buttons in js
+
+const equalbtn = document.querySelector('#equal');
+
+equalbtn.addEventListener('click', () => {console.log("help")});
+
+const addBtn = document.querySelector("#add");
+addBtn.addEventListener('click', () => {console.log('nice')});
+
 
 
 let num1 = 0;
@@ -36,13 +39,6 @@ function calc()
     let num1 = prompt(1);
     let num2 = prompt(2);
     let operator = prompt('operator');
-
-/*
-csinalj egy for loopot es azzal hozd letre a szam gombokat, majd a tartalmuk alapjan tudod mit nyomsz le es looppal adj hozzajuk eventlistenert is
-az odin etch a sketch prjketemben van hasnonlo megoldas a gridhez
-innerhtml es string
-*/
-
 
     switch(parseInt(operator))
     {
@@ -66,5 +62,3 @@ innerhtml es string
             console.log('alma');
     }
 }
-
-equalbtn.addEventListener('click', () => {calc()});
