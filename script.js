@@ -3,6 +3,8 @@ let num2 = "";
 let operator = "";
 let operatorPressed = false;
 
+const display = document.querySelector(".display");
+
 
 //generate number buttons so later they can be referenced in js
 const btnContainer = document.querySelector('.button-container');
@@ -41,6 +43,7 @@ function AttachEventListeners() //event listeners are attached separately, to en
     nrButtons.forEach(element => {
         element.addEventListener('click', () => {
             operatorPressed == false ? num1 += element.textContent : num2 += element.textContent;
+            display.textContent += element.textContent;
         });
     });
 
@@ -51,6 +54,7 @@ function AttachEventListeners() //event listeners are attached separately, to en
         element.addEventListener('click', () => {
             operator = element.textContent;
             operatorPressed = true;
+            display.textContent += operator;
         });
     });
 }
@@ -68,29 +72,40 @@ const delbtn = document.querySelector('#del');
 delbtn.addEventListener('click', () => {console.log("del button")});
 
 const cbtn = document.querySelector('#cbtn');
-cbtn.addEventListener('click', () => {MakeNumbers(1)});
+cbtn.addEventListener('click', () => {
+    num1 = "";
+    num2 = "";
+    operator = "";
+    operatorPressed = false;
+    display.textContent = "result: ";
+});
 
 function calc(num1, num2)
 {
+    let result;
+
     switch(operator)
     {
         case "+":
-            console.log(num1 + num2);
+            result = num1 + num2;
             break;
 
         case "-":
-            console.log(num1 - num2);
+            result = num1 - num2;
             break;
 
         case "/":
-            console.log(num1 / num2);
+            result = num1 / num2;
             break;
 
         case "*":
-            console.log(num1 * num2);
+            result = num1 * num2;
             break;
         
         default:
             console.log('alma');
     }
+
+    console.log(result);
+    display.textContent = result;
 }
