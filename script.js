@@ -45,6 +45,7 @@ function AttachEventListeners() //event listeners are attached separately, to en
         });
     });
 
+
     const opButtons = document.querySelectorAll(".operator");
     var operatorIDs = {
         "+" : 0,
@@ -68,7 +69,7 @@ AttachEventListeners();
 //create buttons in js
 
 const equalbtn = document.querySelector('#equal');
-equalbtn.addEventListener('click', () => {calc(num1, num2)});
+equalbtn.addEventListener('click', () => {calc(parseFloat(num1), parseFloat(num2))});
 
 const delbtn = document.querySelector('#del');
 delbtn.addEventListener('click', () => {console.log("del button")});
